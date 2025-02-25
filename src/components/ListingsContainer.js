@@ -10,19 +10,16 @@ function ListingsContainer() {
       .then(data => setListings(data))
   }, [])
 
-  const listingData = listings.map((listing) => (
-    <ListingCard 
-      key={listing.id}
-      description={listing.description}
-      image={listing.image}
-      location={listing.location}
-    />
-  ))
-
   return (
     <main>
       <ul className="cards">
-        {listingData}
+        {listings.map((listing) => (
+          <ListingCard 
+            description={listing.description}
+            image={listing.image}
+            location={listing.location}
+          />
+        ))}
       </ul>
     </main>
   );
